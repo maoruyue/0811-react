@@ -1,24 +1,29 @@
+/*
+包含多个用于生成新的state的reducer函数的模块
+ */
+
+/*
+包含多个用于生成新的state的reducer函数的模块
+ */
 import {combineReducers} from 'redux'
 
-initXxx = []
-function xxx(preState = initXxx, action){
-  switch (action.type){
+function xxx(state = 0, action) {
 
-    default:
-      preState
-  }
+  return state
 }
 
-initYyy = {}
-function yyy(preState = initYyy, action){
-  switch (action.type){
+function yyy(state = 0, action) {
 
-    default:
-      preState
-  }
+  return state
 }
 
-export default combineReducers(){
+// 返回合并后的reducer函数
+export default combineReducers({
   xxx,
   yyy
-}
+})
+/*
+  向外暴露一个整合后的reducers函数：function（state，action）{...}
+  state的结构为 {xxx: xxx(), yyy:　yyy()}
+
+ */
