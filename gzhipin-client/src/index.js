@@ -6,29 +6,31 @@ import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'   //Provider  代理 ，用来监听state的变化的，重新渲染页面
 import {HashRouter, Switch, Route} from 'react-router-dom'
 
-import store from './redux/store'
 import Login from './containers/login/login'
 import Register from './containers/register/register'
 import Main from './containers/main/main'
+import store from './redux/store'
+
+import './assets/css/css.less'
 
 //渲染组件标签到页面
 ReactDOM.render((
   <Provider store={store}>
     <HashRouter>
       <Switch>
-        <Route path="/login" component={Login}/>
-        <Route path="/register" component={Register}/>
-        <Route component={Main} />
+        <Route path='/login' component={Login}/>
+        <Route path='/register' component={Register}/>
+        <Route component={Main}/>{/*默认组件*/}
       </Switch>
     </HashRouter>
   </Provider>
-  ),document.getElementById('root'));
+), document.getElementById('root'))
 
 
 
 /*
-HashRouter 在发送请求时，会在地址栏中带#
-BrowserRouter  不带#,  （兼容老版本）
+HashRouter 在发送请求时，会在地址栏中带#（兼容老版本）
+BrowserRouter  不带#,
 Switch 是用来切换router的组件的
 <Route path="/login" component={Login}/>    根据网址来加载对应的组件
 
